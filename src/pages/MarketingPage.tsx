@@ -140,7 +140,7 @@ export default function MarketingPage() {
                   alt="Cmabridge Founders"
                   className="h-12 md:h-14"
                 />
-                <span className="text-muted-foreground text-sm font-medium">University of Cambridge</span>
+                <span className="text-muted-foreground text-sm font-medium">Cambridge Founders</span>
               </div>
               <div className="flex items-center gap-3 transition-opacity">
                 <img
@@ -148,7 +148,7 @@ export default function MarketingPage() {
                   alt="Cambridge Founders"
                   className="h-10 md:h-12"
                 />
-                <span className="text-muted-foreground text-sm font-medium">Cambridge Founders</span>
+                <span className="text-muted-foreground text-sm font-medium">University of Cambirdge</span>
               </div>
             </div>
             <div className="flex justify-center mt-12">
