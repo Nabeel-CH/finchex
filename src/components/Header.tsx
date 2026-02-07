@@ -16,7 +16,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
             <FileCheck className="h-6 w-6 text-primary" />
-            <span className="font-semibold text-foreground">Financials Checker</span>
+            <span className="font-bold text-foreground text-lg">FincheX</span>
             <span className="text-xs bg-accent text-accent-foreground px-2 py-0.5 rounded-full">Demo</span>
           </Link>
           

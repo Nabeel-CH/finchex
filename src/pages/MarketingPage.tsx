@@ -13,7 +13,9 @@ import {
 } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Upload, CheckSquare, FileText, ClipboardCheck, Play, Shield, Mail } from 'lucide-react';
+import { Upload, CheckSquare, FileText, ClipboardCheck, Play, Shield, Mail, ChevronDown } from 'lucide-react';
+import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.svg';
+import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.svg';
 
 // ============================================================
 // EDIT THIS URL TO CHANGE THE EMBEDDED VIDEO
@@ -107,15 +109,15 @@ export default function MarketingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <span className="font-semibold text-foreground text-lg">Financials Checker</span>
+            <span className="font-bold text-foreground text-xl">FincheX</span>
             <nav className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={() => scrollToSection('demo')}>
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" onClick={() => scrollToSection('demo')}>
                 Watch demo
               </Button>
-              <Button size="sm" onClick={() => scrollToSection('pilot')}>
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('pilot')}>
                 Join pilot
               </Button>
             </nav>
@@ -125,30 +127,62 @@ export default function MarketingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+        <section className="py-24 md:py-32 relative overflow-hidden">
+          <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
               Unit tests for financial statements — delivered as an{' '}
-              <span className="text-primary">Exceptions Pack</span>.
+              <span className="relative inline-block">
+                <span className="relative z-10">Exceptions Pack</span>
+                <span className="absolute bottom-1 left-0 w-full h-3 bg-primary/30 -z-0"></span>
+              </span>.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
               Catch add/check errors, prior-year mismatches, and broken note references in minutes. 
               Prototype for early pilots.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={() => scrollToSection('demo')}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('demo')}>
                 <Play className="h-4 w-4 mr-2" />
                 Watch the demo
               </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection('pilot')}>
+              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-accent" onClick={() => scrollToSection('pilot')}>
                 Join pilot
               </Button>
+            </div>
+          </div>
+
+          {/* Backed By Section */}
+          <div className="container mx-auto px-4 max-w-4xl">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground text-center mb-6">
+              Backed by
+            </p>
+            <div className="flex items-center justify-center gap-10 md:gap-16">
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img 
+                  src={cambridgeUniversityLogo} 
+                  alt="University of Cambridge" 
+                  className="h-10 md:h-12 brightness-0 invert"
+                />
+                <span className="text-muted-foreground text-sm font-medium hidden sm:block">University of Cambridge</span>
+              </div>
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img 
+                  src={cambridgeFoundersLogo} 
+                  alt="Cambridge Founders" 
+                  className="h-8 md:h-10"
+                />
+              </div>
+            </div>
+            
+            {/* Scroll indicator */}
+            <div className="flex justify-center mt-12">
+              <ChevronDown className="h-6 w-6 text-muted-foreground animate-bounce" />
             </div>
           </div>
         </section>
 
         {/* Demo Video Section */}
-        <section id="demo" className="py-16 bg-muted/30">
+        <section id="demo" className="py-16 bg-card/50">
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
               2-minute demo
@@ -168,7 +202,7 @@ export default function MarketingPage() {
                   <div className="text-center">
                     <Play className="h-16 w-16 mx-auto mb-4 opacity-30" />
                     <p>Video coming soon</p>
-                    <p className="text-sm mt-1">Edit VIDEO_EMBED_URL in MarketingPage.tsx</p>
+                    <p className="text-sm mt-1 text-muted-foreground/60">Edit VIDEO_EMBED_URL in MarketingPage.tsx</p>
                   </div>
                 </div>
               )}
@@ -418,11 +452,11 @@ export default function MarketingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 bg-card">
+      <footer className="border-t border-border py-8 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <p className="font-medium text-foreground mb-1">Financials Checker</p>
+          <p className="font-bold text-foreground mb-1 text-lg">FincheX</p>
           <p className="text-sm text-muted-foreground mb-3">
-            Contact: <a href="mailto:hello@example.com" className="underline">hello@example.com</a>
+            Contact: <a href="mailto:hello@example.com" className="underline hover:text-foreground transition-colors">hello@example.com</a>
           </p>
           <p className="text-xs text-muted-foreground">
             Demo only — not a substitute for professional judgement.

@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Financials Checker Design System
-   Professional audit-style aesthetic with clear hierarchy
+/* FincheX Design System
+   Dark, professional aesthetic inspired by modern SaaS
    All colors MUST be HSL
 */
 
@@ -11,92 +11,93 @@
 
 @layer base {
   :root {
-    /* Core backgrounds */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* Core backgrounds - Dark navy theme */
+    --background: 213 32% 12%;
+    --foreground: 210 40% 96%;
 
-    /* Cards and surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    /* Cards and surfaces - Slightly lighter dark */
+    --card: 213 32% 15%;
+    --card-foreground: 210 40% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 213 32% 15%;
+    --popover-foreground: 210 40% 96%;
 
-    /* Primary - Deep slate blue for trust and professionalism */
-    --primary: 222 47% 20%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Teal/cyan accent */
+    --primary: 186 64% 50%;
+    --primary-foreground: 213 32% 10%;
 
-    /* Secondary - Light slate for subtle backgrounds */
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 20%;
+    /* Secondary - Muted dark surfaces */
+    --secondary: 213 28% 20%;
+    --secondary-foreground: 210 40% 90%;
 
     /* Muted elements */
-    --muted: 214 32% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 213 28% 18%;
+    --muted-foreground: 215 20% 60%;
 
-    /* Accent - Soft blue for highlights */
-    --accent: 214 95% 93%;
-    --accent-foreground: 222 47% 20%;
+    /* Accent - Subtle highlight */
+    --accent: 213 28% 22%;
+    --accent-foreground: 210 40% 96%;
 
     /* Destructive / High severity */
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     /* Severity colors */
-    --severity-high: 0 72% 51%;
-    --severity-high-bg: 0 72% 96%;
-    --severity-medium: 38 92% 50%;
-    --severity-medium-bg: 38 92% 95%;
-    --severity-low: 142 71% 45%;
-    --severity-low-bg: 142 71% 95%;
+    --severity-high: 0 72% 55%;
+    --severity-high-bg: 0 72% 20%;
+    --severity-medium: 38 92% 55%;
+    --severity-medium-bg: 38 92% 20%;
+    --severity-low: 142 71% 50%;
+    --severity-low-bg: 142 71% 20%;
 
     /* Status colors */
-    --status-open: 38 92% 50%;
-    --status-open-bg: 38 92% 95%;
-    --status-cleared: 142 71% 45%;
-    --status-cleared-bg: 142 71% 95%;
+    --status-open: 38 92% 55%;
+    --status-open-bg: 38 92% 20%;
+    --status-cleared: 142 71% 50%;
+    --status-cleared-bg: 142 71% 20%;
 
     /* Borders and inputs */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 20%;
+    --border: 213 28% 22%;
+    --input: 213 28% 22%;
+    --ring: 186 64% 50%;
 
     --radius: 0.5rem;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 213 32% 10%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 186 64% 50%;
+    --sidebar-primary-foreground: 213 32% 10%;
+    --sidebar-accent: 213 28% 18%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 213 28% 20%;
+    --sidebar-ring: 186 64% 50%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 210 40% 98%;
+    /* Dark mode is the default, but keep this for consistency */
+    --background: 213 32% 10%;
+    --foreground: 210 40% 96%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 213 32% 13%;
+    --card-foreground: 210 40% 96%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 213 32% 13%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 186 64% 50%;
+    --primary-foreground: 213 32% 10%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 213 28% 18%;
+    --secondary-foreground: 210 40% 90%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 213 28% 16%;
+    --muted-foreground: 215 20% 60%;
 
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 213 28% 20%;
+    --accent-foreground: 210 40% 96%;
 
-    --destructive: 0 62% 30%;
+    --destructive: 0 62% 40%;
     --destructive-foreground: 210 40% 98%;
 
     --severity-high: 0 72% 60%;
@@ -111,18 +112,18 @@
     --status-cleared: 142 71% 55%;
     --status-cleared-bg: 142 71% 15%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 212 27% 84%;
+    --border: 213 28% 20%;
+    --input: 213 28% 20%;
+    --ring: 186 64% 50%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224 76% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 213 32% 8%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 186 64% 50%;
+    --sidebar-primary-foreground: 213 32% 10%;
+    --sidebar-accent: 213 28% 16%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 213 28% 18%;
+    --sidebar-ring: 186 64% 50%;
   }
 }
 
