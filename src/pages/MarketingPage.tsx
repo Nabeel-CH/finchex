@@ -137,7 +137,7 @@ export default function MarketingPage() {
               <div className="flex items-center gap-3 transition-opacity">
                 <img
                   src={cambridgeUniversityLogo}
-                  alt="University of Cambridge"
+                  alt="Cmabridge Founders"
                   className="h-12 md:h-14"
                 />
                 <span className="text-muted-foreground text-sm font-medium">University of Cambridge</span>
