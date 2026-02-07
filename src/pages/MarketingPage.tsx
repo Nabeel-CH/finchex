@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Upload, CheckSquare, FileText, ClipboardCheck, Play, Shield, Mail, ChevronDown } from 'lucide-react';
 import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.svg';
 import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.svg';
+import { ComparisonTable } from '@/components/ComparisonTable';
 
 // ============================================================
 // EDIT THIS URL TO CHANGE THE EMBEDDED VIDEO
@@ -156,20 +157,22 @@ export default function MarketingPage() {
             <p className="text-xs uppercase tracking-widest text-muted-foreground text-center mb-6">
               Backed by
             </p>
-            <div className="flex items-center justify-center gap-10 md:gap-16">
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+            <div className="flex items-center justify-center gap-12 md:gap-20">
+              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
                 <img 
                   src={cambridgeUniversityLogo} 
                   alt="University of Cambridge" 
-                  className="h-10 md:h-12 brightness-0 invert"
+                  className="h-12 md:h-14 text-muted-foreground"
+                  style={{ filter: 'invert(0.7)' }}
                 />
-                <span className="text-muted-foreground text-sm font-medium hidden sm:block">University of Cambridge</span>
+                <span className="text-muted-foreground text-sm font-medium">University of Cambridge</span>
               </div>
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
                 <img 
                   src={cambridgeFoundersLogo} 
                   alt="Cambridge Founders" 
-                  className="h-8 md:h-10"
+                  className="h-10 md:h-12"
+                  style={{ filter: 'invert(0.7)' }}
                 />
               </div>
             </div>
@@ -228,6 +231,23 @@ export default function MarketingPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Comparison Table Section */}
+        <section className="py-16 bg-card/30">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">
+              How we compare
+            </h2>
+            <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+              See how FincheX stacks up against existing solutions
+            </p>
+            <Card className="border-border/50 overflow-hidden">
+              <CardContent className="p-0">
+                <ComparisonTable />
+              </CardContent>
+            </Card>
           </div>
         </section>
 
