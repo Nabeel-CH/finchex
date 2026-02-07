@@ -14,7 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      pilot_signups: {
+        Row: {
+          additional_notes: string | null
+          biggest_pains: string[]
+          company_name: string
+          company_size: string
+          created_at: string
+          full_name: string
+          id: string
+          role: string
+          user_type: string
+          work_email: string
+        }
+        Insert: {
+          additional_notes?: string | null
+          biggest_pains: string[]
+          company_name: string
+          company_size: string
+          created_at?: string
+          full_name: string
+          id?: string
+          role: string
+          user_type: string
+          work_email: string
+        }
+        Update: {
+          additional_notes?: string | null
+          biggest_pains?: string[]
+          company_name?: string
+          company_size?: string
+          created_at?: string
+          full_name?: string
+          id?: string
+          role?: string
+          user_type?: string
+          work_email?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
