@@ -14,8 +14,8 @@ import {
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Upload, CheckSquare, FileText, ClipboardCheck, Play, Shield, Mail, ChevronDown } from 'lucide-react';
-import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.svg';
-import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.svg';
+import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.png';
+import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.png';
 import { ComparisonTable } from '@/components/ComparisonTable';
 
 // ============================================================
