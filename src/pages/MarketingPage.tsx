@@ -112,16 +112,23 @@ export default function MarketingPage() {
           <div className="container mx-auto px-4 max-w-4xl">
             <p className="text-xs uppercase tracking-widest text-muted-foreground text-center mb-6">Backed by</p>
             <div className="flex items-center justify-center gap-12 md:gap-20">
-              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                <img src={cambridgeUniversityLogo} alt="University of Cambridge" className="h-12 md:h-14 text-muted-foreground" style={{ filter: 'invert(0.7)' }} />
+              <div className="flex items-center gap-3 transition-opacity">
+                <img
+                  src={cambridgeFoundersLogo}
+                  alt="Cambridge Founders"
+                  className="h-10 md:h-12"
+                />
+                <span className="text-muted-foreground text-sm font-medium">Cambridge Founders</span>
+              </div>
+              <div className="flex items-center gap-3 transition-opacity">
+                <img
+                  src={cambridgeUniversityLogo}
+                  alt="University of Cambridge"
+                  className="h-12 md:h-14"
+                />
                 <span className="text-muted-foreground text-sm font-medium">University of Cambridge</span>
               </div>
-              <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-                <img src={cambridgeFoundersLogo} alt="Cambridge Founders" className="h-10 md:h-12" style={{ filter: 'invert(0.7)' }} />
-              </div>
             </div>
-
-            {/* Scroll indicator */}
             <div className="flex justify-center mt-12">
               <ChevronDown className="h-6 w-6 text-muted-foreground animate-bounce" />
             </div>
