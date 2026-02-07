@@ -70,9 +70,9 @@ export function ComparisonTable() {
                   }`}
                 >
                   {supported ? (
-                    <Check className="h-5 w-5 text-primary mx-auto" />
+                    <Check className="h-5 w-5 text-emerald-500 mx-auto" />
                   ) : (
-                    <X className="h-5 w-5 text-muted-foreground/50 mx-auto" />
+                    <X className="h-5 w-5 text-red-500/70 mx-auto" />
                   )}
                 </td>
               ))}
