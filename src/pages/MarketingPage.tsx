@@ -4,16 +4,42 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Play, Shield, Mail, ChevronDown } from 'lucide-react';
+import { Play, Shield, Mail, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.png';
 import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.png';
 import { ComparisonTable } from '@/components/ComparisonTable';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 // ============================================================
-// EDIT THIS URL TO CHANGE THE EMBEDDED VIDEO
-// Supports YouTube, Vimeo, or Loom embed URLs
+// DEMO SLIDES CONFIGURATION
+// Add your demo slide images here
 // ============================================================
-const VIDEO_EMBED_URL = ''; // e.g., 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+const DEMO_SLIDES = [
+  {
+    id: 1,
+    title: 'Slide 1',
+    image: '', // Add image path here
+    description: 'Demo slide 1',
+  },
+  {
+    id: 2,
+    title: 'Slide 2',
+    image: '', // Add image path here
+    description: 'Demo slide 2',
+  },
+  {
+    id: 3,
+    title: 'Slide 3',
+    image: '', // Add image path here
+    description: 'Demo slide 3',
+  },
+];
 
 export default function MarketingPage() {
   const { toast } = useToast();
@@ -73,7 +99,7 @@ export default function MarketingPage() {
             <span className="font-bold text-foreground text-xl">FincheX</span>
             <nav className="flex items-center gap-2">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" onClick={() => scrollToSection('demo')}>
-                Watch demo
+                View demo
               </Button>
               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('pilot')}>
                 Join pilot
@@ -88,11 +114,7 @@ export default function MarketingPage() {
         <section className="py-24 md:py-32 relative overflow-hidden">
           <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Unit tests for financial statements — delivered as an{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10">Exceptions Pack</span>
-                <span className="absolute bottom-1 left-0 w-full h-3 bg-primary/30 -z-0"></span>
-              </span>.
+              The AI end-to-end financial statement checker
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
               Catch add/check errors, prior-year mismatches, and broken note references in minutes. Prototype for early pilots.
@@ -100,7 +122,7 @@ export default function MarketingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('demo')}>
                 <Play className="h-4 w-4 mr-2" />
-                Watch the demo
+                View the demo
               </Button>
               <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-accent" onClick={() => scrollToSection('pilot')}>
                 Join pilot
@@ -114,73 +136,24 @@ export default function MarketingPage() {
             <div className="flex items-center justify-center gap-12 md:gap-20">
               <div className="flex items-center gap-3 transition-opacity">
                 <img
-                  src={cambridgeFoundersLogo}
-                  alt="Cambridge Founders"
-                  className="h-10 md:h-12"
-                />
-                <span className="text-muted-foreground text-sm font-medium">Cambridge Founders</span>
-              </div>
-              <div className="flex items-center gap-3 transition-opacity">
-                <img
                   src={cambridgeUniversityLogo}
                   alt="University of Cambridge"
                   className="h-12 md:h-14"
                 />
                 <span className="text-muted-foreground text-sm font-medium">University of Cambridge</span>
               </div>
+              <div className="flex items-center gap-3 transition-opacity">
+                <img
+                  src={cambridgeFoundersLogo}
+                  alt="Cambridge Founders"
+                  className="h-10 md:h-12"
+                />
+                <span className="text-muted-foreground text-sm font-medium">Cambridge Founders</span>
+              </div>
             </div>
             <div className="flex justify-center mt-12">
               <ChevronDown className="h-6 w-6 text-muted-foreground animate-bounce" />
             </div>
-          </div>
-        </section>
-
-        {/* Demo Video Section */}
-        <section id="demo" className="py-16 bg-card/50">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">2-minute demo</h2>
-
-            <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden mb-8">
-              {VIDEO_EMBED_URL ? (
-                <iframe src={VIDEO_EMBED_URL} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Demo video" />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                  <div className="text-center">
-                    <Play className="h-16 w-16 mx-auto mb-4 opacity-30" />
-                    <p>Video coming soon</p>
-                    <p className="text-sm mt-1 text-muted-foreground/60">Edit VIDEO_EMBED_URL in MarketingPage.tsx</p>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-primary font-bold mb-2">1</div>
-                <p className="text-sm text-muted-foreground">Upload draft FS + prior year + TB export</p>
-              </div>
-              <div>
-                <div className="text-primary font-bold mb-2">2</div>
-                <p className="text-sm text-muted-foreground">Generate exceptions pack + issue list</p>
-              </div>
-              <div>
-                <div className="text-primary font-bold mb-2">3</div>
-                <p className="text-sm text-muted-foreground">Clear issues with an audit-friendly trail</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Comparison Table Section */}
-        <section className="py-16 bg-card/30">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">How we compare</h2>
-            <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">See how FincheX stacks up against existing solutions</p>
-            <Card className="border-border/50 overflow-hidden">
-              <CardContent className="p-0">
-                <ComparisonTable />
-              </CardContent>
-            </Card>
           </div>
         </section>
 
@@ -226,6 +199,69 @@ export default function MarketingPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </section>
+
+        {/* Demo Slides Section */}
+        <section id="demo" className="py-16 bg-card/50">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">2-minute demo</h2>
+
+            <Carousel className="w-full mb-8">
+              <CarouselContent>
+                {DEMO_SLIDES.map((slide) => (
+                  <CarouselItem key={slide.id}>
+                    <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden">
+                      {slide.image ? (
+                        <img
+                          src={slide.image}
+                          alt={slide.title}
+                          className="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                          <div className="text-center">
+                            <Play className="h-16 w-16 mx-auto mb-4 opacity-30" />
+                            <p className="text-lg font-medium mb-2">{slide.title}</p>
+                            <p className="text-sm text-muted-foreground/60">Add demo slide images to DEMO_SLIDES in MarketingPage.tsx</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-primary font-bold mb-2">1</div>
+                <p className="text-sm text-muted-foreground">Upload draft FS + prior year + TB export</p>
+              </div>
+              <div>
+                <div className="text-primary font-bold mb-2">2</div>
+                <p className="text-sm text-muted-foreground">Generate exceptions pack + issue list</p>
+              </div>
+              <div>
+                <div className="text-primary font-bold mb-2">3</div>
+                <p className="text-sm text-muted-foreground">Clear issues with an audit-friendly trail</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table Section */}
+        <section className="py-16 bg-card/30">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">How we compare</h2>
+            <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">See how FincheX stacks up against existing solutions</p>
+            <Card className="border-border/50 overflow-hidden">
+              <CardContent className="p-0">
+                <ComparisonTable />
+              </CardContent>
+            </Card>
           </div>
         </section>
 
