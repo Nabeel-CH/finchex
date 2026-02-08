@@ -8,38 +8,6 @@ import { Play, Shield, Mail, ChevronDown, ChevronLeft, ChevronRight } from 'luci
 import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.png';
 import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.png';
 import { ComparisonTable } from '@/components/ComparisonTable';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-
-// ============================================================
-// DEMO SLIDES CONFIGURATION
-// Add your demo slide images here
-// ============================================================
-const DEMO_SLIDES = [
-  {
-    id: 1,
-    title: 'Slide 1',
-    image: '', // Add image path here
-    description: 'Demo slide 1',
-  },
-  {
-    id: 2,
-    title: 'Slide 2',
-    image: '', // Add image path here
-    description: 'Demo slide 2',
-  },
-  {
-    id: 3,
-    title: 'Slide 3',
-    image: '', // Add image path here
-    description: 'Demo slide 3',
-  },
-];
 
 export default function MarketingPage() {
   const { toast } = useToast();
@@ -70,6 +38,12 @@ export default function MarketingPage() {
     try {
       const { error } = await supabase.from('pilot_signups').insert({
         work_email: formData.workEmail,
+        full_name: '',
+        company_name: '',
+        company_size: '',
+        role: '',
+        user_type: 'pilot',
+        biggest_pains: [],
         created_at: new Date().toISOString(),
       });
 
@@ -202,38 +176,21 @@ export default function MarketingPage() {
           </div>
         </section>
 
-        {/* Demo Slides Section */}
+        {/* Demo Video Section */}
         <section id="demo" className="py-16 bg-card/50">
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">2-minute demo</h2>
 
-            <Carousel className="w-full mb-8">
-              <CarouselContent>
-                {DEMO_SLIDES.map((slide) => (
-                  <CarouselItem key={slide.id}>
-                    <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden">
-                      {slide.image ? (
-                        <img
-                          src={slide.image}
-                          alt={slide.title}
-                          className="w-full h-full object-contain"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                          <div className="text-center">
-                            <Play className="h-16 w-16 mx-auto mb-4 opacity-30" />
-                            <p className="text-lg font-medium mb-2">{slide.title}</p>
-                            <p className="text-sm text-muted-foreground/60">Add demo slide images to DEMO_SLIDES in MarketingPage.tsx</p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
+            <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden mb-8">
+              <video
+                className="w-full h-full"
+                controls
+                poster=""
+              >
+                <source src="/demo-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
