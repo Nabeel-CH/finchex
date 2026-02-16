@@ -1,35 +1,35 @@
 import { Check, X } from 'lucide-react';
 
-const competitors = ['Current AI', 'KPMG Checker', 'Workiva', 'DataSnipper', 'FincheX'];
+const competitors = ['KPMG Checker', 'Workiva', 'DataSnipper', 'FincheX'];
 
 const features = [
   { 
     name: 'Legislative disclosure check',
-    support: [false, true, true, true, true]
+    support: [false, false, false, true]
   },
   { 
     name: 'Consol check',
-    support: [false, true, false, true, true]
+    support: [false, true, true, true]
   },
   { 
     name: 'No integration software required',
-    support: [false, false, false, false, true]
+    support: [true, false, true, true]
   },
   { 
     name: 'Confidential & secure',
-    support: [false, false, true, false, true]
+    support: [true, true, true, true]
   },
   { 
     name: 'Accessible to all users',
-    support: [false, true, false, false, true]
+    support: [false, false, false, true]
   },
   { 
     name: 'Free to try',
-    support: [false, false, false, false, true]
+    support: [false, false, false, true]
   },
   { 
     name: 'Ability to make inline changes',
-    support: [false, true, true, false, true]
+    support: [false, false, false, true]
   },
 ];
 
@@ -57,7 +57,7 @@ export function ComparisonTable() {
           </tr>
         </thead>
         <tbody>
-          {features.map((feature, rowIndex) => (
+          {features.map((feature) => (
             <tr key={feature.name} className="border-b border-border/50 hover:bg-accent/30 transition-colors">
               <td className="py-4 px-4 text-foreground text-sm">
                 {feature.name}
