@@ -4,10 +4,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Play, Shield, Mail, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, Shield, Mail, ChevronDown, Lock, Eye, Trash2 } from 'lucide-react';
 import cambridgeUniversityLogo from '@/assets/cambridge-university-logo.png';
 import cambridgeFoundersLogo from '@/assets/cambridge-founders-logo.png';
 import { ComparisonTable } from '@/components/ComparisonTable';
+import { WorkflowCoverage } from '@/components/WorkflowCoverage';
 
 export default function MarketingPage() {
   const { toast } = useToast();
@@ -91,7 +92,7 @@ export default function MarketingPage() {
               The AI end-to-end financial statement checker
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Catch add/check errors, prior-year mismatches, and broken note references in minutes. Prototype for early pilots.
+              Catch add/check errors, prior-year mismatches, and broken note references in minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('demo')}>
@@ -131,6 +132,14 @@ export default function MarketingPage() {
           </div>
         </section>
 
+        {/* Workflow Coverage Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">What our checks cover</h2>
+            <WorkflowCoverage />
+          </div>
+        </section>
+
         {/* How it works */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-5xl">
@@ -159,7 +168,7 @@ export default function MarketingPage() {
                   <div className="h-12 w-12 bg-accent rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Play className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">Exceptions Pack</h3>
+                  <h3 className="font-semibold text-foreground mb-2">Exceptions Report</h3>
                   <p className="text-sm text-muted-foreground">Get a structured report of findings</p>
                 </CardContent>
               </Card>
@@ -169,7 +178,7 @@ export default function MarketingPage() {
                     <Play className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">Review & sign-off</h3>
-                  <p className="text-sm text-muted-foreground">Clear issues with tracked comments</p>
+                  <p className="text-sm text-muted-foreground">Clear issues with tracked comments and download updated statement with markdowns</p>
                 </CardContent>
               </Card>
             </div>
@@ -179,9 +188,9 @@ export default function MarketingPage() {
         {/* Demo Video Section */}
         <section id="demo" className="py-16 bg-card/50">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">2-minute demo</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Demo Video</h2>
 
-            <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden mb-8">
+            <div className="aspect-video bg-card rounded-lg border border-border overflow-hidden">
               <video
                 className="w-full h-full"
                 controls
@@ -190,21 +199,6 @@ export default function MarketingPage() {
                 <source src="/demo-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-primary font-bold mb-2">1</div>
-                <p className="text-sm text-muted-foreground">Upload draft FS + prior year + TB export</p>
-              </div>
-              <div>
-                <div className="text-primary font-bold mb-2">2</div>
-                <p className="text-sm text-muted-foreground">Generate exceptions pack + issue list</p>
-              </div>
-              <div>
-                <div className="text-primary font-bold mb-2">3</div>
-                <p className="text-sm text-muted-foreground">Clear issues with an audit-friendly trail</p>
-              </div>
             </div>
           </div>
         </section>
@@ -227,19 +221,20 @@ export default function MarketingPage() {
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="flex items-center justify-center gap-3 mb-8">
               <Shield className="h-6 w-6 text-primary" />
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Built for confidential drafts</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Built for confidentiality</h2>
             </div>
             <ul className="space-y-4 max-w-xl mx-auto">
               {[
-                "Prototype: we only collect what's needed for the pilot.",
-                "Files are handled privately and can be deleted on request.",
-                "No claims of full automation or guarantees.",
+                { icon: Lock, text: "End-to-end encryption for all uploaded documents and data." },
+                { icon: Eye, text: "Your files are never used to train models or shared with third parties." },
+                { icon: Trash2, text: "Full data deletion on request — you stay in control at all times." },
+                { icon: Shield, text: "Access restricted to authorised users only with role-based permissions." },
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="h-5 w-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Play className="h-3 w-3 text-primary" />
+                  <div className="h-8 w-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <item.icon className="h-4 w-4 text-primary" />
                   </div>
-                  <span className="text-muted-foreground">{item}</span>
+                  <span className="text-muted-foreground pt-1">{item.text}</span>
                 </li>
               ))}
             </ul>
