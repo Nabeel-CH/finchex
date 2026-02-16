@@ -22,8 +22,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
 
-    /* Primary - Deep teal accent */
-    --primary: 190 80% 35%;
+    /* Primary - Clean blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Warm gray surfaces */
@@ -34,9 +34,9 @@
     --muted: 210 18% 94%;
     --muted-foreground: 220 12% 44%;
 
-    /* Accent - Soft teal tint */
-    --accent: 190 40% 95%;
-    --accent-foreground: 190 80% 25%;
+    /* Accent - Soft blue tint */
+    --accent: 217 80% 96%;
+    --accent-foreground: 217 91% 45%;
 
     /* Destructive / High severity */
     --destructive: 0 72% 51%;
@@ -59,19 +59,19 @@
     /* Borders and inputs */
     --border: 210 16% 88%;
     --input: 210 16% 88%;
-    --ring: 190 80% 35%;
+    --ring: 217 91% 60%;
 
     --radius: 0.625rem;
 
     /* Sidebar */
     --sidebar-background: 210 18% 96%;
     --sidebar-foreground: 220 25% 10%;
-    --sidebar-primary: 190 80% 35%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 18% 91%;
     --sidebar-accent-foreground: 220 25% 10%;
     --sidebar-border: 210 16% 88%;
-    --sidebar-ring: 190 80% 35%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
